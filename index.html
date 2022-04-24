@@ -61,9 +61,9 @@
 
       #sample {
         width: 200px;
-        /*затримка оберту*/
+        /*Length of turnover.*/
         transition: transform 1s;
-        /*зміна осі оберту*/
+        /*The designation of the axis of rotation.*/
         transform-origin: 50% 50%;
         border-radius: 20px;
         margin-left: auto;
@@ -86,7 +86,9 @@
     <script>
       var current_rotation = 0;
       document
-        .querySelector("#rotate-button") //вибір єлементу
+      //The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
+        .querySelector("#rotate-button") 
+      //The addEventListener() method of the EventTarget interface sets up a function that will be called whenever the specified event is delivered to the target.
         .addEventListener("click", function () {
           current_rotation += 90;
           document.querySelector("#sample").style.transform =
@@ -94,7 +96,7 @@
         });
 
       document
-        .querySelector("#zero-button") //вибір єлементу
+        .querySelector("#zero-button") 
         .addEventListener("click", function () {
           current_rotation = 0;
           document.querySelector("#sample").style.transform =
@@ -102,7 +104,7 @@
         });
 
       document
-        .querySelector("#minus-button") //вибір єлементу
+        .querySelector("#minus-button") 
         .addEventListener("click", function () {
           current_rotation -= 90;
           document.querySelector("#sample").style.transform =
