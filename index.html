@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        background-color: black;
+      }
+      #card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 200px;
+      }
+
+      #demo-container {
+        justify-content: center;
+        width: 220px;
+        border: 3px solid rgb(52, 51, 51);
+        border-radius: 40px;
+        padding: 10px;
+        box-shadow: -5px 5px 8px #444, 5px -5px 8px #222;
+        background-color: rgb(7, 7, 7);
+      }
+
+      #button {
+        width: 200px;
+        display: flex;
+        justify-content: space-evenly;
+        margin: auto;
+      }
+
+      #rotate-button,
+      #zero-button,
+      #minus-button {
+        border: 4px solid rgb(52, 51, 51);
+        border-radius: 50px;
+        color: rgb(87, 84, 84);
+        padding: 14px;
+        cursor: pointer;
+        background-color: #333;
+        width: 50px;
+        margin-top: 10px;
+        box-shadow: -5px 5px 8px #444, 5px -5px 8px #222,
+          inset 5px 5px 10px #444, inset -5px -5px 10px #222;
+      }
+
+      #rotate-button:hover,
+      #zero-button:hover,
+      #minus-button:hover {
+        box-shadow: 0px 0px 5px #444, 0px 0px 5px #222,
+          inset -5px -5px 10px #444, inset 5px 5px 10px #222;
+        transition: 500ms;
+        color: #71b7f0;
+        border: 4px solid rgb(43, 41, 41);
+      }
+
+      #sample {
+        width: 200px;
+        /*затримка оберту*/
+        transition: transform 1s;
+        /*зміна осі оберту*/
+        transform-origin: 50% 50%;
+        border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="card">
+      <div id="demo-container">
+        <img src="foto.jpg" id="sample" style="transform: rotate(0deg)" />
+        <div id="button">
+          <button id="minus-button">-90</button>
+          <button id="zero-button">0</button>
+          <button id="rotate-button">90</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      var current_rotation = 0;
+      document
+        .querySelector("#rotate-button") //вибір єлементу
+        .addEventListener("click", function () {
+          current_rotation += 90;
+          document.querySelector("#sample").style.transform =
+            "rotate(" + current_rotation + "deg)";
+        });
+
+      document
+        .querySelector("#zero-button") //вибір єлементу
+        .addEventListener("click", function () {
+          current_rotation = 0;
+          document.querySelector("#sample").style.transform =
+            "rotate(" + current_rotation + "deg)";
+        });
+
+      document
+        .querySelector("#minus-button") //вибір єлементу
+        .addEventListener("click", function () {
+          current_rotation -= 90;
+          document.querySelector("#sample").style.transform =
+            "rotate(" + current_rotation + "deg)";
+        });
+    </script>
+  </body>
+</html>
